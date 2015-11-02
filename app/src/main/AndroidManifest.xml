@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="technology.xor.notes.notes">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <uses-feature
+        android:name="android.hardware.camera2"
+        android:required="true" />
+
+    <application
+        android:name="technology.xor.notes.support.NoteApp"
+        tools:replace="android:allowBackup"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".NotesMain"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+
+        </activity>
+
+        <activity
+            android:name="technology.xor.notes.notes.NewNote"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"
+            android:parentActivityName=".NotesMain"/>
+
+        <activity android:name="technology.xor.notes.lockscreen.CustomLockPin"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop" />
+
+        <activity android:name="technology.xor.notes.sites.NewSite"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"
+            android:parentActivityName=".NotesMain" />
+
+        <activity android:name="technology.xor.notes.sites.SiteNoteView"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"
+            android:parentActivityName=".NotesMain" />
+
+        <activity android:name="technology.xor.notes.support.CameraView"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"
+            android:parentActivityName=".NotesMain" />
+
+        <service
+            android:name="technology.xor.notes.support.MakeClean"
+            android:enabled="true" />
+
+        <service android:name="technology.xor.notes.support.GPSTracker"
+            android:enabled="true" />
+
+    </application>
+
+</manifest>

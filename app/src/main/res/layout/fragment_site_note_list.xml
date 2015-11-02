@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/material_light_gray"
+    android:id="@+id/fSiteNote">
+
+    <com.beardedhen.androidbootstrap.BootstrapLabel
+        android:id="@+id/siteId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        app:bootstrapBrand="primary"
+        app:bootstrapHeading="h3"
+        app:roundedCorners="false"
+        android:text="@string/header_site_note" />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@+id/siteId"
+        android:background="@color/material_light_gray"
+        android:id="@+id/siteNoteList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>
